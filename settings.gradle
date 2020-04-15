@@ -1,0 +1,2 @@
+include ':app', ':magic-plugin', ':leetcode'
+rootProject.name='CommonArch'

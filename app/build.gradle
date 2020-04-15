@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    defaultConfig {
+        applicationId PKG_NAME
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        manifestPlaceholders = [pkgName: "${PKG_NAME}"]
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            buildConfigField "String", "H5_BASE_HOST", "$H5_BASE_HOST_RELEASE"
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "H5_BASE_HOST", "$H5_BASE_HOST_DEBUG"
+            signingConfig signingConfigs.debug
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_SDK_VERSION"
+    implementation "com.android.support:appcompat-v7:$SUPPORT_SDK_VERSION"
+    implementation "com.android.support:design:$SUPPORT_SDK_VERSION"
+    implementation "com.android.support:support-vector-drawable:$SUPPORT_SDK_VERSION"
+    implementation "com.android.support:recyclerview-v7:$SUPPORT_SDK_VERSION"
+
+    implementation "androidx.appcompat:appcompat:$APPCOMPAT_VERSION"
+    implementation "androidx.core:core-ktx:$CORE_KTX_VERSION"
+    implementation "androidx.constraintlayout:constraintlayout:$CONSTRAINTLAYOUT_VERSION"
+//    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+//    implementation "androidx.lifecycle:lifecycle-livedata:$LIFECYCLE"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel:$LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-extensions:$LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-common:$LIFECYCLE"
+    implementation "androidx.lifecycle:lifecycle-runtime:$LIFECYCLE"
+    implementation "androidx.arch.core:core-common:$LIFECYCLE"
+
+    // dagger2
+    implementation "com.google.dagger:dagger:$DAGGER_VERSION"
+    implementation "com.google.dagger:dagger-android:$DAGGER_VERSION"
+    implementation "com.google.dagger:dagger-android-support:$DAGGER_VERSION"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    kapt "com.google.dagger:dagger-compiler:$DAGGER_VERSION"
+    kapt "com.google.dagger:dagger-android-processor:$DAGGER_VERSION"
+
+    //rxjava2.0
+    implementation "io.reactivex.rxjava2:rxandroid:${RXANDROID_VERSION}"
+    implementation "io.reactivex.rxjava2:rxjava:${RXJAVA_VERSION}"
+
+    //retrofit2.0
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
+    implementation "com.google.code.gson:gson:${GSON_VERSION}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${RETROFIT_LOGGING_INTERCEPTOR_VERSION}"
+    implementation "com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}"
+
+    //glide
+    implementation "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    //权限处理
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+
+    //firebase core
+    implementation "com.google.firebase:firebase-core:17.2.0"
+    implementation "com.google.firebase:firebase-messaging:20.0.0"
+    implementation "com.google.firebase:firebase-analytics:17.2.0"
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+
+    // 适配
+//    implementation 'me.jessyan:autosize:1.1.2'
+    //razorpay第三方支付
+//    implementation 'com.razorpay:checkout:1.5.12'
+    //appsflyer
+    implementation 'com.appsflyer:af-android-sdk:5.0.1'
+    implementation 'com.android.installreferrer:installreferrer:1.1'
+    //LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0'
+    //下拉刷新上拉加载
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    //扫码框架
+    implementation 'com.king.zxing:zxing-lite:1.1.6-androidx'
+    implementation 'com.google.zxing:core:3.3.3'
+}
