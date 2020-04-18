@@ -3,4 +3,18 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <!--完全透明-->
+    <color name="transparent">#00000000</color>
+    <!--黑色以及带透明度的黑色-->
+    <color name="black">#000000</color>
+    <color name="color_1A000000">#1A000000</color><!--10%-->
+    <color name="color_8A000000">#8A000000</color><!--54%-->
+    <color name="color_DE000000">#DE000000</color><!--87%-->
+    <color name="color_1F000000">#1F000000</color><!--12%-->
+    <color name="color_99000000">#99000000</color><!--60%-->
+    <color name="color_CC000000">#CC000000</color><!--80%-->
+
+    <color name="white">#FFFFFF</color>
+    <color name="color_FFEDC976">#FFEDC976</color>
+
 </resources>

@@ -1,0 +1,7 @@
+<com.india.credit.custom.view.loading.LoadingView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loading_root"
+    android:layout_width="120dp"
+    android:layout_height="120dp"
+    android:background="@color/transparent" />
+
+
